@@ -1,15 +1,19 @@
 def vvod():
-	txt2 = []
-	while True:
-		txt = input()
-		if txt == 'stop':
-			break
+	txt = []
+	sl = ''
+	while sl != 'stop':
+		sl = input()
+		if sl.isspace() or sl == '':
+			continue
 		else:
-			txt2.append(txt)
-	txt3 = []
-	for i in range(0, len(txt2), 5):
-		txt3.append(txt2[i])
-	return txt3
+			txt.append(sl)
+	txt2 = []
+	for i in txt:
+		if i.split()[-1].isalpha() and i != 'stop':
+			txt2.append(i)
+		else:
+			continue
+	return txt2
 
 def keyser(txt):
 	x1 = [k for k in txt]
@@ -116,18 +120,18 @@ txt2 = grup(txt) 						# 0121301300210 *****************************************
 x0, x1, x2, x3  = appxar(txt2)
 
 for k in x3:
-	x3[k][-1] = x3[k][-1].replace('Ваня', k.split()[0])
-	x3[k][-1] = x3[k][-1].replace('Ученик', k.split()[0])
-	x3[k][-1] = x3[k][-1].replace('Он ', k.split()[0])
+	x3[k][-1] = x3[k][-1].replace('Ваня', k.split()[-1])
+	x3[k][-1] = x3[k][-1].replace('Ученик', k.split()[-1])
+	x3[k][-1] = x3[k][-1].replace('Он ', k.split()[-1])
 	x3[k][-1] = x3[k][-1].replace(' он ', '')
 	x3[k][-1] = x3[k][-1].replace('его ', '')
 	x3[k][-1] = x3[k][-1].replace('Его ', '')
 	x3[k][-1] = x3[k][-1].replace('этот ', '')
 	x3[k][-1] = x3[k][-1].replace('Этот ', '')
 for k in x2:
-	x2[k][-1] = x2[k][-1].replace('Ваня', k.split()[0])
-	x2[k][-1] = x2[k][-1].replace('Ученик', k.split()[0])
-	x2[k][-1] = x2[k][-1].replace('Он ', k.split()[0])
+	x2[k][-1] = x2[k][-1].replace('Ваня', k.split()[-1])
+	x2[k][-1] = x2[k][-1].replace('Ученик', k.split()[-1])
+	x2[k][-1] = x2[k][-1].replace('Он ', k.split()[-1])
 	x2[k][-1] = x2[k][-1].replace(' он ', '')
 	x2[k][-1] = x2[k][-1].replace(' его ', '')
 	x2[k][-1] = x2[k][-1].replace('Его ', '')
